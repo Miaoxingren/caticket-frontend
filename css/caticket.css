@@ -1,0 +1,225 @@
+/* style for child header */
+
+.content-header .nav li a {
+    font-size: 1.2em;
+}
+
+.content-header .navbar-form .search {
+    padding: 0 10px;
+    border: 1px solid #F26262;
+    border-radius: 40px;
+}
+
+.content-header .nav-session {
+    margin: 20px 0;
+    font-size: 1.1em;
+}
+
+.content-header .nav-session li.first a {
+    padding-left: 0;
+}
+
+/* style for movie list */
+.movie-list {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.movie-item {
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+}
+
+.movie-item .movie-score,
+.movie-item .movie-release {
+    margin-top: 40%;
+}
+
+.movie-item .movie-sale {
+    text-align: right;
+}
+
+.movie-item .movie-sale a {
+    margin-top: 50%;
+    font-size: 1.2em;
+}
+
+/* style for cinema list */
+
+.cinema-list {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.cinema-item {
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+}
+
+.cinema-item .cinema-location {
+    margin-top: 20px;
+}
+.cinema-item .cinema-sale {
+    position: absolute;
+    margin: auto;
+    top: 40%;
+    right: 0;
+    text-align: right;
+}
+.cinema-item .cinema-sale a {
+    margin-right: 25%;
+    font-size: 1.2em;
+}
+
+/* style for session list */
+
+.session-table {
+    border-top: 1px solid #999999;
+    font-size: 1.05em;
+}
+
+.session-table .session-item {
+    border-bottom: 1px solid white;
+}
+
+.session-table .session-item td {
+    padding: 15px;
+}
+
+.session-table .session-sale {
+    text-align: center;
+}
+
+/* style for reservation */
+
+.reservation-info,
+.reservation-check,
+.reservation-pay {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* style for basic info of reservation*/
+
+.reservation-info .info-post {
+    padding-left: 8px;
+}
+
+.reservation-info .basic-info {
+    position: relative;
+    text-align: left;
+}
+
+.reservation-info .basic-info .info-detail {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.basic-info .info-detail {
+    border-bottom: 1px solid white;
+}
+
+.basic-info .info-detail section {
+    height: 100%;
+    position: relative;
+}
+
+.info-detail .info-cinema {
+    position: absolute;
+    margin: auto;
+    top: 45%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.info-detail .info-session {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 5%;
+}
+
+.info-detail .info-session span {
+    margin-right: 40px;
+}
+
+/* style for seat chocie */
+
+.reservation-info .choose-seat {
+    margin: 5% 0;
+}
+
+.reservation-info .choose-seat .icon-task {
+    color: #0087E2;
+}
+
+.choose-seat .seat-table {
+    text-align: right;
+}
+
+.choose-seat .seat-table td {
+    font-size: 2em;
+}
+
+.choose-seat .seat-table td.line {
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.choose-seat .seat-state {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.choose-seat .seat-state span {
+    margin-right: 10px;
+}
+
+.choose-seat .seat-state span.icon-task {
+    margin-left: 40px;
+}
+
+/* style for reservation checking */
+
+.reservation-check,
+.reservation-pay a {
+    font-size: 1.5em;
+}
+
+.reservation-check p {
+    margin: 50px 0;
+}
+
+.reservation-check .check-seats span {
+    margin-right: 20px;
+}
+.reservation-check .check-seats span.first {
+    margin-right: 0;
+}
+
+/* style for reservation payment */
+
+.reservation-pay {
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

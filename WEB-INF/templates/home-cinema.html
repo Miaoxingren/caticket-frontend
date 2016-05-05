@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{caticket.title}">CATICKET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="icon" href="../../images/favicon.png" th:href="@{/images/favicon.png}" />
+    <!--[if IE]><link rel="shortcut icon" href="../../images/favicon.ico" th:href="@{/images/favicon.ico}" /><![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" href="../../css/layout.css" th:href="@{/css/layout.css}" />
+    <link rel="stylesheet" type="text/css" href="../../css/caticket.css" th:href="@{/css/caticket.css}" />
+</head>
+
+<body>
+    <div class="main">
+        <header class="main-header lang-en" th:replace="layout :: header">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" th:href="@{/caticket}">
+                            <img class="logo" alt="logo" src="../../images/logo.png" th:src="@{/images/logo.png}">
+                            <span class="brand" th:text="#{caticket.title}">CATICKET</span>
+                        </a>
+                    </div>
+                    <div class="nav-user">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#" th:href="@{/user}"><span class="icon-user"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content lang-cn" th:fragment="content">
+            <header class="content-header">
+                <nav class="navbar navbar-default">
+                    <ul class="nav navbar-nav child-nav">
+                        <li class="first"><a href="#" th:href="@{/caticket/movies}">电影</a></li>
+                        <li><a class="disabled">|</a></li>
+                        <li class="active"><a href="#" th:href="@{/caticket/cinemas}">影院</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group search">
+                            <span class="icon-magnifying-glass vertical-center"></span>
+                            <input type="search" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </nav>
+            </header>
+
+            <div class="cinema-list">
+                <div class="container-fluid" th:remove="all-but-first">
+                    <div class="row cinema-item" th:each="cinema : ${cinemas}">
+                        <div class="col-xs-8 cinema-info">
+                            <section>
+                                <h1 class="cinema-name" th:text="${cinema.name}">星美国际影城·世界城店</h1>
+                                <h2 class="cinema-location" th:text="${cinema.location}">朝阳区金汇路8号世界城E座地下一层(世贸天阶北侧)</h2>
+                            </section>
+                        </div>
+                        <div class="col-xs-4 cinema-sale">
+                            <a class="btn btn-danger" role="button" href="#"
+                                th:href="@{/caticket/movies(cinemaId=${cinema.id})}">立即购票</a>
+                        </div>
+                    </div>
+
+                    <div class="row cinema-item">
+                        <div class="col-xs-8 cinema-info">
+                            <section>
+                                <h1 class="cinema-title">星美国际影城·世界城店</h1>
+                                <h2 class="cinema-location">朝阳区金汇路8号世界城E座地下一层(世贸天阶北侧)</h2>
+                            </section>
+                        </div>
+                        <div class="col-xs-4 cinema-sale">
+                            <a class="btn btn-danger" href="#" role="button">立即购票</a>
+                        </div>
+                    </div>
+
+                    <div class="row cinema-item">
+                        <div class="col-xs-8 cinema-info">
+                            <section>
+                                <h1 class="cinema-title">星美国际影城·世界城店</h1>
+                                <h2 class="cinema-location">朝阳区金汇路8号世界城E座地下一层(世贸天阶北侧)</h2>
+                            </section>
+                        </div>
+                        <div class="col-xs-4 cinema-sale">
+                            <a class="btn btn-danger" href="#" role="button">立即购票</a>
+                        </div>
+                    </div>
+
+                    <div class="row cinema-item">
+                        <div class="col-xs-8 cinema-info">
+                            <section>
+                                <h1 class="cinema-title">星美国际影城·世界城店</h1>
+                                <h2 class="cinema-location">朝阳区金汇路8号世界城E座地下一层(世贸天阶北侧)</h2>
+                            </section>
+                        </div>
+                        <div class="col-xs-4 cinema-sale">
+                            <a class="btn btn-danger" href="#" role="button">立即购票</a>
+                        </div>
+                    </div>
+
+                    <div class="row cinema-item">
+                        <div class="col-xs-8 cinema-info">
+                            <section>
+                                <h1 class="cinema-title">星美国际影城·世界城店</h1>
+                                <h2 class="cinema-location">朝阳区金汇路8号世界城E座地下一层(世贸天阶北侧)</h2>
+                            </section>
+                        </div>
+                        <div class="col-xs-4 cinema-sale">
+                            <a class="btn btn-danger" href="#" role="button">立即购票</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer lang-en" th:replace="layout :: footer">
+            <div>
+                <span th:text="#{caticket.copyright}">Copyright © 2016 by ThreeQ</span>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{caticket.title}">CATICKET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="icon" href="../../images/favicon.png" th:href="@{/images/favicon.png}" />
+    <!--[if IE]><link rel="shortcut icon" href="../../images/favicon.ico" th:href="@{/images/favicon.ico}" /><![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" href="../../css/layout.css" th:href="@{/css/layout.css}" />
+    <link rel="stylesheet" type="text/css" href="../../css/caticket.css" th:href="@{/css/caticket.css}" />
+</head>
+
+<body>
+    <div class="main">
+        <header class="main-header lang-en" th:replace="layout :: header">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" th:href="@{/caticket}">
+                            <img class="logo" alt="logo" src="../../images/logo.png" th:src="@{/images/logo.png}">
+                            <span class="brand" th:text="#{caticket.title}">CATICKET</span>
+                        </a>
+                    </div>
+                    <div class="nav-user">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#" th:href="@{/user}"><span class="icon-user"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content lang-cn" th:fragment="content">
+            <div class="reservation-info">
+                <div class="container-fluid">
+                    <div class="basic-info row">
+                        <div class="col-xs-3 info-post">
+                            <img class="img-responsive" alt="TheHuntsman" src="../../images/TheHuntsman.jpg" 
+                                th:alt="$(reservation.movieName)" th:src="$(reservation.postURL)"/>
+                        </div>
+                        <div class="col-xs-9 info-detail">
+                            <section>
+                                <h1 class="info-movie" th:text="${reservation.movieName}">猎神：冬日之战</h1>
+                                <h2 class="info-cinema" th:text="${reservation.cinema}">星美国际影城·世界城店</h2>
+                                <h3 class="info-session">
+                                    <span th:text="${reservation.sessionTime}">9:00am-10:30am</span>
+                                    <span th:text="${reservation.sessionLang}">英语3D</span>
+                                    <span th:text="${reservation.sessionRoom}">1号厅</span>
+                                    <span class="info-session-price" th:text="'￥'+${reservation.sessionPrice}">53</span>
+                                </h3>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="choose-seat">
+                    <table class="seat-table table">
+                        <tbody th:remove="all-but-first">
+
+                            <tr th:each="line : ${lines}">
+                                <td class="line" th:text="${line.number} + '排'">1排</td>
+                                <td class="seat" line="1" chair="1" th:each="seat : $(line.seats)"
+                                    th:attr="line=$(line.number), chair=$(seat.number)">
+                                    <span class="icon-ipad"></span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="line">1排</td>
+                                <td class="seat" line="1" chair="1"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="1" chair="2"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="1" chair="3"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="1" chair="4"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="1" chair="5"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="1" chair="6"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="1" chair="7"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="1" chair="8"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="1" chair="9"><span class="icon-ipad"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="line">2排</td>
+                                <td class="seat" line="2" chair="1"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="2" chair="2"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="2" chair="3"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="2" chair="4"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="2" chair="5"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="2" chair="6"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="2" chair="7"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="2" chair="8"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="2" chair="9"><span class="icon-ipad"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="line">3排</td>
+                                <td class="seat" line="3" chair="1"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="3" chair="2"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="3" chair="3"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="3" chair="4"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="3" chair="5"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="3" chair="6"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="3" chair="7"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="3" chair="8"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="3" chair="9"><span class="icon-ipad"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="line">4排</td>
+                                <td class="seat" line="4" chair="1"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="4" chair="2"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="4" chair="3"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="4" chair="4"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="4" chair="5"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="4" chair="6"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="4" chair="7"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="4" chair="8"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="4" chair="9"><span class="icon-ipad"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="line">5排</td>
+                                <td class="seat" line="5" chair="1"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="5" chair="2"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="5" chair="3"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="5" chair="4"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="5" chair="5"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="5" chair="6"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="5" chair="7"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="5" chair="8"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="5" chair="9"><span class="icon-ipad"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="line">6排</td>
+                                <td class="seat" line="6" chair="1"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="6" chair="2"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="6" chair="3"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="6" chair="4"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="6" chair="5"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="6" chair="6"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="6" chair="7"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="6" chair="8"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="6" chair="9"><span class="icon-ipad"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="line">7排</td>
+                                <td class="seat" line="7" chair="1"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="7" chair="2"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="7" chair="3"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="7" chair="4"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="7" chair="5"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="7" chair="6"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="7" chair="7"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="7" chair="8"><span class="icon-ipad"></span></td>
+                                <td class="seat" line="7" chair="9"><span class="icon-ipad"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="seat-state">
+                        <span class="icon-ipad"></span><span>可选</span>
+                        <span class="icon-task"></span><span>已选</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            
+            <div class="reservation-check">
+                <section>
+                    <p class="check-tickets"><span>票数：</span><span class="tickets-count">0</span></p>
+                    <div class="check-seats"><span class="first">座位：</span></div>
+                    <p class="check-cost"><span>总价：￥</span><span class="tickets-cost">0</span></p>
+                </section>
+            </div>
+            
+            <div class="reservation-pay">
+                <a class="btn btn-danger" role="button" href="#" th:href="@{/caticket/pay}">支付</a>
+            </div>
+        </div>
+
+        <footer class="main-footer lang-en" th:replace="layout :: footer">
+            <div>
+                <span th:text="#{caticket.copyright}">Copyright © 2016 by ThreeQ</span>
+            </div>
+        </footer>
+    </div>
+    <script src="../../js/caticket.js" async></script>
+</body>
+
+</html>
