@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{caticket.title}">CATICKET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="icon" href="../../images/favicon.png" th:href="@{/images/favicon.png}" />
+    <!--[if IE]><link rel="shortcut icon" href="../../images/favicon.ico" th:href="@{/images/favicon.ico}" /><![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" href="../../css/layout.css" th:href="@{/css/layout.css}" />
+    <link rel="stylesheet" type="text/css" href="../../css/caticket.css" th:href="@{/css/caticket.css}" />
+</head>
+
+<body>
+    <div class="main">
+        <header class="main-header lang-en" th:fragment="header">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#" th:href="@{/caticket}">
+                            <img class="logo" alt="logo" src="../../images/logo.png" th:src="@{/images/logo.png}">
+                            <span class="brand" th:text="#{caticket.title}">CATICKET</span>
+                        </a>
+                    </div>
+                    <div class="nav-user">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#" th:href="@{/user}"><span class="icon-user"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content lang-cn" th:fragment="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4 user-activity">
+                        <div><img class="logo" alt="logo" src="../../images/logo-128.png" th:src="@{/images/logo-128.png}">
+                        </div>
+                        <div><h1>CATICKET</h1></div>
+                        <div class="user-form">
+                            <div class="form-group input-user">
+                                <span class="icon-user vertical-center"></span>
+                                <input type="text" class="form-control" placeholder="User Name" th:placeholder="#{caticket.username}">
+                            </div>
+                            <div class="form-group input-pwd">
+                                <span class="icon-key vertical-center"></span>
+                                <input type="text" class="form-control" placeholder="Password" th:placeholder="#{caticket.password}">
+                            </div>
+                            <div class="form-group input-pwd-repeat invisible">
+                                <span class="icon-key vertical-center"></span>
+                                <input type="text" class="form-control" placeholder="Password Again" th:placeholder="#{caticket.pwdagain}">
+                            </div>
+                            <div><button type="submit" class="signin submit" th:text="#{caticket.signin}">SIGN IN</button></div>
+                            <div><button type="submit" class="joinus submit" th:text="#{caticket.joinus}">JOIN US</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer lang-en" th:fragment="footer">
+            <div>
+                <span th:text="#{caticket.copyright}">Copyright © 2016 by ThreeQ</span>
+            </div>
+        </footer>
+    </div>
+    <script src="../../js/caticket.js" async></script>
+</body>
+
+</html>
