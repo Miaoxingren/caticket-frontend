@@ -100,6 +100,16 @@ CATICKET.seatHandler = (function () {
     };
 }());
 
+(function(){
+    var signin = document.querySelector(".user-activity .signin"),
+        joinus = document.querySelector(".user-activity .joinus"),
+        pwdRepeat = document.querySelector(".input-pwd-repeat");
+    CATICKET.eventHandler.addEvent(joinus, "click", function (event) {
+        if (CATICKET.classHandler.hasClass(pwdRepeat, "invisible")) {
+            CATICKET.classHandler.removeClass(pwdRepeat, "invisible");
+        }
+    });
+}());
 
 (function(){
     var seatTable = document.querySelector(".seat-table"),

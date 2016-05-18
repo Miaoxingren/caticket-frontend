@@ -18,7 +18,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#" th:href="@{/caticket}">
+                        <a class="navbar-brand" href="#" th:href="@{/}">
                             <img class="logo" alt="logo" src="../../images/logo.png" th:src="@{/images/logo.png}">
                             <span class="brand" th:text="#{caticket.title}">CATICKET</span>
                         </a>
@@ -36,9 +36,9 @@
             <header class="content-header">
                 <nav class="navbar navbar-default">
                     <ul class="nav navbar-nav child-nav">
-                        <li class="first"><a href="#" th:href="@{/caticket/movies}">电影</a></li>
+                        <li class="first"><a href="#" th:href="@{/movies}" th:text="#{caticket.movie}">电影</a></li>
                         <li><a class="disabled">|</a></li>
-                        <li class="active"><a href="#" th:href="@{/caticket/cinemas}">影院</a></li>
+                        <li class="active"><a href="#" th:href="@{/cinemas}" th:text="#{caticket.cinema}">影院</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group search">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-xs-4 cinema-sale">
                             <a class="btn btn-danger" role="button" href="#"
-                                th:href="@{/caticket/movies(cinemaId=${cinema.id})}">立即购票</a>
+                                th:href="@{/movies(cinemaId=${cinema.id})}">立即购票</a>
                         </div>
                     </div>
 

@@ -210,16 +210,80 @@
     text-align: right;
 }
 
+/* style for movie info page */
+.moive-info {
+    width:85%;
+    margin-right: auto;
+    margin-left: auto;
+}
 
+.img-poster {
+    width:100%;
+    height: 100%;
+    vertical-align: middle;
+}
 
+.moive-name {
+    margin-top: 5%;
+    margin-bottom: 8%;
+}
 
+.moive-date {
+    margin-top: 8%;
+    margin-bottom: 25%;
+}
 
+.moive-score {
+    float: right;
+}
 
+.actor-list {
+    margin-bottom: 12%;
+}
 
+.actor-list .label {
+    padding: 10px;
+}
 
+.moive-actor {
+    float: left;
+    margin-right: 2%;
+    margin-top: 1%;
+}
 
+/* style for user page */
+.user-activity {
+    font-size: 1.2em;
+    text-align: center;
+    vertical-align: center;
+}
 
+.user-activity div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+.form-group {
+    border-bottom: 1px solid white;
+}
 
+.form-control {
+    font-size: 1.2em;
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
 
+.submit,
+.submit:focus {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #F26262;
+    border-radius: 40px;
+}
 
+.submit:hover {
+    background-color: #FE365D;
+}

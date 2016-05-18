@@ -18,7 +18,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#" th:href="@{/caticket}">
+                        <a class="navbar-brand" href="#" th:href="@{/}">
                             <img class="logo" alt="logo" src="../../images/logo.png" th:src="@{/images/logo.png}">
                             <span class="brand" th:text="#{caticket.title}">CATICKET</span>
                         </a>
@@ -37,18 +37,19 @@
                 <div class="container-fluid">
                     <div class="basic-info row">
                         <div class="col-xs-3 info-post">
-                            <img class="img-responsive" alt="TheHuntsman" src="../../images/TheHuntsman.jpg" 
-                                th:alt="$(reservation.movieName)" th:src="$(reservation.postURL)"/>
+                            <img class="img-responsive" alt="TheHuntsman" 
+                                src="../../images/TheHuntsman.jpg" th:src="@{/images/TheHuntsman.jpg}"/>
                         </div>
                         <div class="col-xs-9 info-detail">
                             <section>
-                                <h1 class="info-movie" th:text="${reservation.movieName}">猎神：冬日之战</h1>
-                                <h2 class="info-cinema" th:text="${reservation.cinema}">星美国际影城·世界城店</h2>
+                                <h1 class="info-movie" th:text="${movieName}">猎神：冬日之战</h1>
+                                <h2 class="info-cinema" th:text="${cinema}">星美国际影城·世界城店</h2>
                                 <h3 class="info-session">
-                                    <span th:text="${reservation.sessionTime}">9:00am-10:30am</span>
-                                    <span th:text="${reservation.sessionLang}">英语3D</span>
-                                    <span th:text="${reservation.sessionRoom}">1号厅</span>
-                                    <span class="info-session-price" th:text="'￥'+${reservation.sessionPrice}">53</span>
+                                    <span th:text="${sessionTime}">9:00am-10:30am</span>
+                                    <span th:text="${sessionLang}">英语3D</span>
+                                    <span th:text="${sessionRoom} + #{caticket.room}">1号厅</span>
+                                    <b th:text="#{caticket.money}"></b>
+                                    <span class="info-session-price" th:text="${sessionPrice}">53</span>
                                 </h3>
                             </section>
                         </div>
@@ -60,9 +61,9 @@
                         <tbody th:remove="all-but-first">
 
                             <tr th:each="line : ${lines}">
-                                <td class="line" th:text="${line.number} + '排'">1排</td>
-                                <td class="seat" line="1" chair="1" th:each="seat : $(line.seats)"
-                                    th:attr="line=$(line.number), chair=$(seat.number)">
+                                <td class="line" th:text="${line.number} + #{caticket.line}">1排</td>
+                                <td class="seat" line="1" chair="1" th:each="chair : ${line.chairs}"
+                                    th:attr="line=${line.number}, chair=${chair.number}">
                                     <span class="icon-ipad"></span>
                                 </td>
                             </tr>
@@ -155,8 +156,8 @@
                     </table>
 
                     <div class="seat-state">
-                        <span class="icon-ipad"></span><span>可选</span>
-                        <span class="icon-task"></span><span>已选</span>
+                        <span class="icon-ipad"></span><span th:text="#{caticket.selectable}">可选</span>
+                        <span class="icon-task"></span><span th:text="#{caticket.selected}">已选</span>
                     </div>
                 </div>
             </div>
@@ -165,14 +166,14 @@
             
             <div class="reservation-check">
                 <section>
-                    <p class="check-tickets"><span>票数：</span><span class="tickets-count">0</span></p>
-                    <div class="check-seats"><span class="first">座位：</span></div>
-                    <p class="check-cost"><span>总价：￥</span><span class="tickets-cost">0</span></p>
+                    <p class="check-tickets"><span th:text="#{caticket.ticketcnt}">票数：</span><span class="tickets-count">0</span></p>
+                    <div class="check-seats"><span class="first" th:text="#{caticket.seats}">座位：</span></div>
+                    <p class="check-cost"><span th:text="#{caticket.total}">总价：￥</span><span class="tickets-cost">0</span></p>
                 </section>
             </div>
             
             <div class="reservation-pay">
-                <a class="btn btn-danger" role="button" href="#" th:href="@{/caticket/pay}">支付</a>
+            <a class="btn btn-danger" role="button" href="#" th:href="@{/pay}" th:text="#{caticket.pay}">支付</a>
             </div>
         </div>
 
@@ -182,7 +183,7 @@
             </div>
         </footer>
     </div>
-    <script src="../../js/caticket.js" async></script>
+    <script src="../../js/caticket.js" th:src="@{/js/caticket.js}" async></script>
 </body>
 
 </html>

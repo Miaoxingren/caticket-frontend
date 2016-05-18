@@ -18,14 +18,14 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#" th:href="@{/caticket}">
+                        <a class="navbar-brand" href="#" th:href="@{/}">
                             <img class="logo" alt="logo" src="../../images/logo.png" th:src="@{/images/logo.png}">
                             <span class="brand" th:text="#{caticket.title}">CATICKET</span>
                         </a>
                     </div>
                     <div class="nav-user">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#" th:href="@{/caticket/user}"><span class="icon-user"></span></a></li>
+                            <li><a href="#" th:href="@{/user}"><span class="icon-user"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,10 +35,10 @@
         <div class="content lang-cn" th:fragment="content">
             <header class="content-header">
                 <nav class="navbar navbar-default">
-                    <ul class="nav navbar-nav">
-                        <li class="active first"><a href="#" th:href="@{/caticket/movies}">电影</a></li>
+                    <ul class="nav navbar-nav child-nav">
+                        <li class="active first"><a href="#" th:href="@{/movies}" th:text="#{caticket.movie}">电影</a></li>
                         <li><a class="disabled">|</a></li>
-                        <li><a href="#" th:href="@{/caticket/cinemas}">影院</a></li>
+                        <li><a href="#" th:href="@{/cinemas}" th:text="#{caticket.cinema}">影院</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group search">
@@ -53,23 +53,22 @@
                 <div class="container-fluid" th:remove="all-but-first">
                     <div class="row movie-item" th:each="movie : ${movies}">
                         <div class="col-xs-4 movie-post">
-                            <a href="#" th:href="@{/caticket/movies(movieId=${movie.id})}">
-                                <img class="img-responsive" alt="TheHuntsman" src="../../images/TheHuntsman.jpg" 
-                                    th:alt="$(movie.name)" th:src="$(movie.postURL)"/>
+                            <a href="#" th:href="@{/movies(movieId=${movie.id})}">
+                                <img class="img-responsive" alt="TheHuntsman" src="../../images/TheHuntsman.jpg" th:src="@{/images/TheHuntsman.jpg}"/>
                             </a>
                         </div>
                         <div class="col-xs-4 movie-info">
                             <section>
                                 <h1 class="movie-name" th:text="${movie.name}">猎神：冬日之战</h1>
                                 <h2 class="movie-score">
-                                    <span class="label label-primary" th:text="${movie.score} + '分'">7.5分</span>
+                                    <span class="label label-primary" th:text="${movie.score} + #{caticket.score}">7.5分</span>
                                 </h2>
                                 <h3 class="movie-release" th:text="${#calendars.format(movie.releaseTime, 'yyyy-mm-dd')} + #{caticket.release}">2016-07-14上映</h3>
                             </section>
                         </div>
                         <div class="col-xs-4 movie-sale">
                             <a class="btn btn-danger" role="button" href="#"
-                                th:href="@{/caticket/cinemas(movieId=${movie.id})}">立即购票</a>
+                                th:href="@{/cinemas(movieId=${movie.id})}" th:text="#{caticket.buynow}">立即购票</a>
                         </div>
                     </div>
 
